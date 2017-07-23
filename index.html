@@ -2,6 +2,9 @@
 <meta charset="utf-8">
 <style>
 
+.title {
+  font: 30px sans-serif;
+}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
@@ -10,7 +13,7 @@ body {
 }
 
 text {
-  font: 10px sans-serif;
+  font: 15px sans-serif;
 }
 
 .axis path {
@@ -29,17 +32,25 @@ text {
   text-anchor: end;
 }
 
-form {
+.form1 {
+  position: absolute;
+  left: 20px;
+  bottom: -30px;
+}
+
+.form2 form {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
 </style>
+<div class="form1">
 <form>
   <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
   <label><input type="radio" name="mode" value="stacked"> Stacked</label>
 </form>
+</div>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
@@ -47,7 +58,7 @@ form {
 //     formatYear = d3.format("02d"),
 //     formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
 
-var margin = {top: 10, right: 20, bottom: 20, left: 140},
+var margin = {top: 10, right: 20, bottom: 20, left: 180},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -81,6 +92,15 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+d3.select("body").style("background-color", "#cfcfcf");
+
+   //Create title
+    svg.append("text")
+    .attr("class", "title")
+    .attr("x", 320)
+    .attr("y",  60)
+    .style("text-anchor", "middle")
+    .text("A Woman’s Place Is in the Dome");
 d3.tsv("america.tsv", function(error, data) {
 
   data.forEach(function(d) {
