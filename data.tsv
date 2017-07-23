@@ -1,12 +1,12 @@
-group	date	value
-1	a	10
-1	b	8
-1	c	14
-1	d	9
-1	e	10
-1	f	8
-1	g	14
-1	h	9
+variable	country	value
+x x	a	10
+x x	b	8
+x x	c	14
+x x	d	9
+x x	e	10
+x x	f	8
+x x	g	14
+x x	h	9
 2	a	3
 2	b	3.5
 2	c	5
