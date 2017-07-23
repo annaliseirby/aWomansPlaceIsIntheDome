@@ -29,14 +29,20 @@ text {
   text-anchor: end;
 }
 
-form {
+.form1 form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.form2 form {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
 </style>
-<form>
+<form id="form1">
   <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
   <label><input type="radio" name="mode" value="stacked"> Stacked</label>
 </form>
@@ -150,7 +156,7 @@ d3.tsv("africa.tsv", function(error, data) {
 });
 
 </script>
-<form>
+<form id="form2">
 	<a href="asia.html"><button type="button">Asia</button></a>
 	<a href="middleEast.html"><button type="button">Middle East</button></a>
 	<a href="europe.html"><button type="button">Europe</button></a>
