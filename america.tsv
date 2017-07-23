@@ -1,25 +1,25 @@
-group	date	value
-early marriage  Mexico  0.17
-early marriage  United States  0.03
-early marriage  Costa Rica  0.13
-early marriage  Brazil  0.04
-early marriage  Uruguay  0.11
-early marriage  Argentina  0.13
-unpaid care work  Mexico    3.32
-unpaid care work  United States 1.61
-unpaid care work  Costa Rica    3.38
-unpaid care work  Brazil    2.7
-unpaid care work  Uruguay   2.64
-unpaid care work  Argentina 2.88
-son preference  Mexico  0.21
-son preference  United States   0.07
-son preference  Costa Rica  0
-son preference  Brazil  0.12
-son preference  Uruguay 0.09
-son preference  Argentina   0.14
-female politicians  Mexico  0.37
-female politicians  United States   0.18
-female politicians  Costa Rica  0.39
-female politicians  Brazil  0.09
-female politicians  Uruguay 0.12
-female politicians  Argentina   0.37
+variable	country	value
+early marriage	Mexico	0.17
+early marriage	United States	0.03
+early marriage	Costa Rica	0.13
+early marriage	Brazil	0.04
+early marriage	Uruguay	0.11
+early marriage	Argentina	0.13
+unpaid care work	Mexico	3.32
+unpaid care work	United States	1.61
+unpaid care work	Costa Rica	3.38
+unpaid care work	Brazil	2.7
+unpaid care work	Uruguay	2.64
+unpaid care work	Argentina	2.88
+son preference	Mexico	0.21
+son preference	United States	0.07
+son preference	Costa Rica	0
+son preference	Brazil	0.12
+son preference	Uruguay	0.09
+son preference	Argentina	0.14
+female politicians	Mexico	0.37
+female politicians	United States	0.18
+female politicians	Costa Rica	0.39
+female politicians	Brazil	0.09
+female politicians	Uruguay	0.12
+female politicians	Argentina	0.37
