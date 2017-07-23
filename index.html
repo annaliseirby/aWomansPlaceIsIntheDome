@@ -24,6 +24,7 @@ text {
 }
 
 .variable-label {
+  font: 15px sans-serif;
   font-weight: bold;
   text-anchor: end;
 }
@@ -46,7 +47,7 @@ form {
 //     formatYear = d3.format("02d"),
 //     formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
 
-var margin = {top: 10, right: 20, bottom: 20, left: 60},
+var margin = {top: 10, right: 20, bottom: 20, left: 140},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -56,7 +57,7 @@ var y0 = d3.scale.ordinal()
 var y1 = d3.scale.linear();
 
 var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1, 0);
+    .rangeRoundBands([0, width], .2, 0);
 
 var xAxis = d3.svg.axis()
     .scale(x)
