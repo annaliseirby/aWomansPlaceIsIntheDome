@@ -1,25 +1,25 @@
 variable	country	value
-early marriage	Hungary	0.01
-early marriage	Netherlands	0
-early marriage	United Kingdom	0
-early marriage	Estonia	0.05
-early marriage	Russia	0.08
-early marriage	Switzerland	0.01
-violence against women	Hungary	0.21
-violence against women	Netherlands	0.25
-violence against women	United Kingdom	0.29
-violence against women	Estonia	0.2
-violence against women	Russia	0.21
-violence against women	Switzerland	0.1
-son preference	Hungary	0.19
-son preference	Netherlands	0.05
-son preference	United Kingdom	0.07
-son preference	Estonia	0.16
-son preference	Russia	0.23
-son preference	Switzerland	0.09
-female politicians	Hungary	0.09
-female politicians	Netherlands	0.39
-female politicians	United Kingdom	0.23
-female politicians	Estonia	0.21
-female politicians	Russia	0.14
-female politicians	Switzerland	0.29
+early marriage	Egypt	0.14
+early marriage	Ghana	0.09
+early marriage	Morocco	0.11
+early marriage	Nigeria	0.29
+early marriage	Uganda	0.23
+early marriage	South Africa	0.03
+violence against women	Egypt	0.34
+violence against women	Ghana	0.23
+violence against women	Morocco	0.30
+violence against women	Nigeria	0.18
+violence against women	Uganda	0.51
+violence against women	South Africa	0.13
+son preference	Egypt	0.36
+son preference	Ghana	0.30
+son preference	Morocco	0.20
+son preference	Nigeria	0.46
+son preference	Uganda	0.23
+son preference	South Africa	0.20
+female politicians	Egypt	0.02
+female politicians	Ghana	0.11
+female politicians	Morocco	0.17
+female politicians	Nigeria	0.07
+female politicians	Uganda	0.35
+female politicians	South Africa	0.42
