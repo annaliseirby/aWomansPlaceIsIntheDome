@@ -42,9 +42,9 @@ form {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
-var parseDate = d3.time.format("%Y-%m").parse,
-    formatYear = d3.format("02d"),
-    formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
+// var parseDate = d3.time.format("%Y-%m").parse,
+//     formatYear = d3.format("02d"),
+//     formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
 
 var margin = {top: 10, right: 20, bottom: 20, left: 60},
     width = 960 - margin.left - margin.right,
@@ -61,7 +61,7 @@ var x = d3.scale.ordinal()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .tickFormat(formatDate);
+    //.tickFormat(formatDate); // we think this is just for numbers
 
 var nest = d3.nest()
     .key(function(d) { return d.group; });
@@ -83,7 +83,7 @@ var svg = d3.select("body").append("svg")
 d3.tsv("data.tsv", function(error, data) {
 
   data.forEach(function(d) {
-    d.date = parseDate(d.date);
+    // d.date = parseDate(d.date);
     d.value = +d.value;
   });
 
@@ -105,7 +105,7 @@ d3.tsv("data.tsv", function(error, data) {
       .attr("x", -6)
       .attr("y", function(d) { return y1(d.values[0].value / 2); })
       .attr("dy", ".35em")
-      .text(function(d) { return "Group " + d.key; });
+      .text(function(d) { return "Group " + d.group; });
 
   group.selectAll("rect")
       .data(function(d) { return d.values; })
