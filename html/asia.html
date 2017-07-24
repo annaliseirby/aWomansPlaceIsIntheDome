@@ -61,152 +61,171 @@ text {
 
 <body>
 
-<div class="form1">
-  <form>
-    <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
-    <label><input type="radio" name="mode" value="stacked"> Stacked</label>
-  </form>
-</div>
-<div class="container">
-    <h1>A Woman's Place Is In the Dome</h1>
-    <p class="lead">Data visualization project by <a href="https://github.com/annaliseirby">Annalise Irby</a> and <a href="https://github.com/xingxing888">Xingxing (Jiahong) Sun</a>.</p>
-</div>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Who Runs the World?</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Girls</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
 
-<script src="//d3js.org/d3.v3.min.js"></script>
-<!-- bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<script>
+  <div class="form1">
+    <form>
+      <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
+      <label><input type="radio" name="mode" value="stacked"> Stacked</label>
+    </form>
+  </div>
+  <div class="container">
+      <h1>A Woman's Place Is In the Dome</h1>
+      <p class="lead">Data visualization project by <a href="https://github.com/annaliseirby">Annalise Irby</a> and <a href="https://github.com/xingxing888">Xingxing (Jiahong) Sun</a>.</p>
+  </div>
 
-var margin = {top: 10, right: 20, bottom: 20, left: 180},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <!-- bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+  <script>
 
-var y0 = d3.scale.ordinal()
-    .rangeRoundBands([height, 0], .2);
+  var margin = {top: 10, right: 20, bottom: 20, left: 180},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
 
-var y1 = d3.scale.linear();
+  var y0 = d3.scale.ordinal()
+      .rangeRoundBands([height, 0], .2);
 
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .2, 0);
+  var y1 = d3.scale.linear();
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    //.tickFormat(formatDate); // we think this is just for numbers
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .2, 0);
 
-var nest = d3.nest()
-    .key(function(d) { return d.variable; });
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      //.tickFormat(formatDate); // we think this is just for numbers
 
-var stack = d3.layout.stack()
-    .values(function(d) { return d.values; })
-    .x(function(d) { return d.country; })
-    .y(function(d) { return d.value; })
-    .out(function(d, y0) { d.valueOffset = y0; });
+  var nest = d3.nest()
+      .key(function(d) { return d.variable; });
 
-var color = d3.scale.category10();
-d3.select("body").style("background-color", "white");
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var stack = d3.layout.stack()
+      .values(function(d) { return d.values; })
+      .x(function(d) { return d.country; })
+      .y(function(d) { return d.value; })
+      .out(function(d, y0) { d.valueOffset = y0; });
 
-      // create a filter button
-    d3.select("body")
-        .append("j") // don't have to put p tag, but it's good form
-        .append("button")
-        .text("Focus")
-        .on("click", function() {
-            svg.selectAll("rect")
-                .filter(function(d) {
-                    return (d.variable == "early marriage" || d.variable == "violence against women" || d.variable == "son preference");
-                })
-                .style("visibility", "hidden");
+  var color = d3.scale.category10();
+  d3.select("body").style("background-color", "white");
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            svg.selectAll(".variable-label")
-                .filter(function(d) {
-                    return (d.key == "early marriage" || d.key == "violence against women" || d.key == "son preference");
-                })
-                .style("visibility", "hidden");
-        })
+        // create a filter button
+      d3.select("body")
+          .append("j") // don't have to put p tag, but it's good form
+          .append("button")
+          .text("Focus")
+          .on("click", function() {
+              svg.selectAll("rect")
+                  .filter(function(d) {
+                      return (d.variable == "early marriage" || d.variable == "violence against women" || d.variable == "son preference");
+                  })
+                  .style("visibility", "hidden");
 
-d3.tsv("../data/asia.tsv", function(error, data) {
+              svg.selectAll(".variable-label")
+                  .filter(function(d) {
+                      return (d.key == "early marriage" || d.key == "violence against women" || d.key == "son preference");
+                  })
+                  .style("visibility", "hidden");
+          })
 
-  data.forEach(function(d) {
-    // d.date = parseDate(d.date);
-    d.value = +d.value;
+  d3.tsv("../data/asia.tsv", function(error, data) {
+
+    data.forEach(function(d) {
+      // d.date = parseDate(d.date);
+      d.value = +d.value;
+    });
+
+    var dataByvariable = nest.entries(data);
+
+    stack(dataByvariable);
+    x.domain(dataByvariable[0].values.map(function(d) { return d.country; }));
+    y0.domain(dataByvariable.map(function(d) { return d.key; }));
+    y1.domain([0, d3.max(data, function(d) { return d.value; })]).range([y0.rangeBand(), 0]);
+
+    var variable = svg.selectAll(".variable")
+        .data(dataByvariable)
+      .enter().append("g")
+        .attr("class", "variable")
+        .attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
+
+    variable.append("text")
+        .attr("class", "variable-label")
+        .attr("x", -6)
+        .attr("y", function(d) { return y1(d.values[0].value / 2); })
+        .attr("dy", ".35em")
+        .text(function(d) { return d.key; }); // IMPORTANT
+
+    variable.selectAll("rect")
+        .data(function(d) { return d.values; })
+      .enter().append("rect")
+        .style("fill", function(d) { return color(d.variable); })
+        .attr("x", function(d) { return x(d.country); })
+        .attr("y", function(d) { return y1(d.value); })
+        .attr("width", x.rangeBand())
+        .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
+
+    variable.filter(function(d, i) { return !i; }).append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + y0.rangeBand() + ")")
+        .call(xAxis);
+
+    d3.selectAll("input").on("change", change);
+
+    var timeout = setTimeout(function() {
+      d3.select("input[value=\"stacked\"]").property("checked", true).each(change);
+    }, 2000);
+
+    function change() {
+      clearTimeout(timeout);
+      if (this.value === "multiples") transitionMultiples();
+      else transitionStacked();
+    }
+
+    function transitionMultiples() {
+      var t = svg.transition().duration(750),
+          g = t.selectAll(".variable").attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
+      g.selectAll("rect").attr("y", function(d) { return y1(d.value); });
+      g.select(".variable-label").attr("y", function(d) { return y1(d.values[0].value / 2); })
+    }
+
+    function transitionStacked() {
+      var t = svg.transition().duration(750),
+          g = t.selectAll(".variable").attr("transform", "translate(0," + y0(y0.domain()[0]) + ")");
+      g.selectAll("rect").attr("y", function(d) { return y1(d.value + d.valueOffset); });
+      g.select(".variable-label").attr("y", function(d) { return y1(d.values[0].value / 2 + d.values[0].valueOffset); })
+    }
   });
 
-  var dataByvariable = nest.entries(data);
-
-  stack(dataByvariable);
-  x.domain(dataByvariable[0].values.map(function(d) { return d.country; }));
-  y0.domain(dataByvariable.map(function(d) { return d.key; }));
-  y1.domain([0, d3.max(data, function(d) { return d.value; })]).range([y0.rangeBand(), 0]);
-
-  var variable = svg.selectAll(".variable")
-      .data(dataByvariable)
-    .enter().append("g")
-      .attr("class", "variable")
-      .attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
-
-  variable.append("text")
-      .attr("class", "variable-label")
-      .attr("x", -6)
-      .attr("y", function(d) { return y1(d.values[0].value / 2); })
-      .attr("dy", ".35em")
-      .text(function(d) { return d.key; }); // IMPORTANT
-
-  variable.selectAll("rect")
-      .data(function(d) { return d.values; })
-    .enter().append("rect")
-      .style("fill", function(d) { return color(d.variable); })
-      .attr("x", function(d) { return x(d.country); })
-      .attr("y", function(d) { return y1(d.value); })
-      .attr("width", x.rangeBand())
-      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
-
-  variable.filter(function(d, i) { return !i; }).append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + y0.rangeBand() + ")")
-      .call(xAxis);
-
-  d3.selectAll("input").on("change", change);
-
-  var timeout = setTimeout(function() {
-    d3.select("input[value=\"stacked\"]").property("checked", true).each(change);
-  }, 2000);
-
-  function change() {
-    clearTimeout(timeout);
-    if (this.value === "multiples") transitionMultiples();
-    else transitionStacked();
-  }
-
-  function transitionMultiples() {
-    var t = svg.transition().duration(750),
-        g = t.selectAll(".variable").attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
-    g.selectAll("rect").attr("y", function(d) { return y1(d.value); });
-    g.select(".variable-label").attr("y", function(d) { return y1(d.values[0].value / 2); })
-  }
-
-  function transitionStacked() {
-    var t = svg.transition().duration(750),
-        g = t.selectAll(".variable").attr("transform", "translate(0," + y0(y0.domain()[0]) + ")");
-    g.selectAll("rect").attr("y", function(d) { return y1(d.value + d.valueOffset); });
-    g.select(".variable-label").attr("y", function(d) { return y1(d.values[0].value / 2 + d.values[0].valueOffset); })
-  }
-});
-
-</script>
-<div class="form2">
-  <form>
-    <a href="asia.html"><button type="button">Asia</button></a>
-    <a href="middleEast.html"><button type="button">Middle East</button></a>
-    <a href="europe.html"><button type="button">Europe</button></a>
-    <a href="africa.html"><button type="button">Africa</button></a>
-    <a href="america.html"><button type="button">America</button></a>
-  </form>
-</div>
+  </script>
+  <div class="form2">
+    <form>
+      <a href="asia.html"><button type="button">Asia</button></a>
+      <a href="middleEast.html"><button type="button">Middle East</button></a>
+      <a href="europe.html"><button type="button">Europe</button></a>
+      <a href="africa.html"><button type="button">Africa</button></a>
+      <a href="america.html"><button type="button">America</button></a>
+    </form>
+  </div>
 
 </body>
