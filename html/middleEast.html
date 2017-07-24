@@ -9,6 +9,10 @@ body {
   width: 960px;
 }
 
+.title {
+  font: 30px sans-serif;
+}
+
 text {
   font: 15px sans-serif;
 }
@@ -27,10 +31,6 @@ text {
   font: 15px sans-serif;
   font-weight: bold;
   text-anchor: end;
-}
-
-.title {
-  font: 30px sans-serif;
 }
 
 .form1 {
@@ -93,6 +93,14 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+   //Create title
+    svg.append("text")
+    .attr("class", "title")
+    .attr("x", 320)
+    .attr("y",  60)
+    .style("text-anchor", "middle")
+    .text("A Woman’s Place Is in the Dome");
+
       // create a filter
     d3.select("body")
         .append("p") // don't have to put p tag, but it's good form
@@ -112,16 +120,7 @@ var svg = d3.select("body").append("svg")
                 })
                 .style("visibility", "hidden");
         })
-
-   //Create title
-    svg.append("text")
-    .attr("class", "title")
-    .attr("x", 320)
-    .attr("y",  60)
-    .style("text-anchor", "middle")
-    .text("A Woman’s Place Is in the Dome");
-
-d3.tsv("africa.tsv", function(error, data) {
+d3.tsv("../data/middleEast.tsv", function(error, data) {
 
   data.forEach(function(d) {
     // d.date = parseDate(d.date);
@@ -155,7 +154,7 @@ d3.tsv("africa.tsv", function(error, data) {
       .attr("x", function(d) { return x(d.country); })
       .attr("y", function(d) { return y1(d.value); })
       .attr("width", x.rangeBand())
-      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); })
+      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
 
   variable.filter(function(d, i) { return !i; }).append("g")
       .attr("class", "x axis")

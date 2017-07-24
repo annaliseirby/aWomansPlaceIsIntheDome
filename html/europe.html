@@ -2,15 +2,14 @@
 <meta charset="utf-8">
 <style>
 
+.title {
+  font: 30px sans-serif;
+}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
   position: relative;
   width: 960px;
-}
-
-.title {
-  font: 30px sans-serif;
 }
 
 text {
@@ -120,7 +119,7 @@ var svg = d3.select("body").append("svg")
                 })
                 .style("visibility", "hidden");
         })
-d3.tsv("middleEast.tsv", function(error, data) {
+d3.tsv("../data/europe.tsv", function(error, data) {
 
   data.forEach(function(d) {
     // d.date = parseDate(d.date);

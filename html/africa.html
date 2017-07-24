@@ -2,10 +2,6 @@
 <meta charset="utf-8">
 <style>
 
-.title {
-  font: 30px sans-serif;
-}
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
@@ -31,6 +27,10 @@ text {
   font: 15px sans-serif;
   font-weight: bold;
   text-anchor: end;
+}
+
+.title {
+  font: 30px sans-serif;
 }
 
 .form1 {
@@ -120,7 +120,8 @@ var svg = d3.select("body").append("svg")
     .attr("y",  60)
     .style("text-anchor", "middle")
     .text("A Woman’s Place Is in the Dome");
-d3.tsv("america.tsv", function(error, data) {
+
+d3.tsv("../data/africa.tsv", function(error, data) {
 
   data.forEach(function(d) {
     // d.date = parseDate(d.date);
@@ -154,7 +155,7 @@ d3.tsv("america.tsv", function(error, data) {
       .attr("x", function(d) { return x(d.country); })
       .attr("y", function(d) { return y1(d.value); })
       .attr("width", x.rangeBand())
-      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
+      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); })
 
   variable.filter(function(d, i) { return !i; }).append("g")
       .attr("class", "x axis")

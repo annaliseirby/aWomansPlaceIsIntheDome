@@ -5,6 +5,7 @@
 .title {
   font: 30px sans-serif;
 }
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
@@ -92,14 +93,6 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-   //Create title
-    svg.append("text")
-    .attr("class", "title")
-    .attr("x", 320)
-    .attr("y",  60)
-    .style("text-anchor", "middle")
-    .text("A Woman’s Place Is in the Dome");
-
       // create a filter
     d3.select("body")
         .append("p") // don't have to put p tag, but it's good form
@@ -119,7 +112,15 @@ var svg = d3.select("body").append("svg")
                 })
                 .style("visibility", "hidden");
         })
-d3.tsv("europe.tsv", function(error, data) {
+
+   //Create title
+    svg.append("text")
+    .attr("class", "title")
+    .attr("x", 320)
+    .attr("y",  60)
+    .style("text-anchor", "middle")
+    .text("A Woman’s Place Is in the Dome");
+d3.tsv("../data/america.tsv", function(error, data) {
 
   data.forEach(function(d) {
     // d.date = parseDate(d.date);
