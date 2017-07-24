@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <style>
 
-.title {
+/*.title {
   font: 30px sans-serif;
 }
 body {
@@ -14,7 +13,7 @@ body {
 
 text {
   font: 15px sans-serif;
-}
+}*/
 
 .axis path {
   display: none;
@@ -34,29 +33,49 @@ text {
 
 .form1 {
   position: absolute;
-  left: 20px;
-  bottom: -30px;
+  left: 750px;
+  bottom: 10px;
 }
 
 .form2 form {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  left: 50px;
+  bottom: 10px;
+}
+
+.j {
+  position: absolute;
+  left: 50px;
+  bottom: 10px;
 }
 
 </style>
-<div class="form1">
-<form>
-  <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
-  <label><input type="radio" name="mode" value="stacked"> Stacked</label>
-</form>
-</div>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script>
+<head>
+	<meta charset="utf-8">
+	<!-- Bootstrap -->
+    <link href="../bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="starter-template.css" rel="stylesheet">
 
-// var parseDate = d3.time.format("%Y-%m").parse,
-//     formatYear = d3.format("02d"),
-//     formatDate = function(d) { return "Q" + ((d.getMonth() / 3 | 0) + 1) + formatYear(d.getFullYear() % 100); };
+</head>
+
+<body>
+
+<div class="form1">
+  <form>
+    <label><input type="radio" name="mode" value="multiples" checked> Multiples</label>
+    <label><input type="radio" name="mode" value="stacked"> Stacked</label>
+  </form>
+</div>
+<div class="container">
+    <h1>A Woman's Place Is In the Dome</h1>
+    <p class="lead">Data visualization project by <a href="https://github.com/annaliseirby">Annalise Irby</a> and <a href="https://github.com/xingxing888">Xingxing (Jiahong) Sun</a>.</p>
+</div>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<!-- bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script>
 
 var margin = {top: 10, right: 20, bottom: 20, left: 180},
     width = 960 - margin.left - margin.right,
@@ -85,18 +104,18 @@ var stack = d3.layout.stack()
     .out(function(d, y0) { d.valueOffset = y0; });
 
 var color = d3.scale.category10();
-d3.select("body").style("background-color", "#cfcfcf");
+d3.select("body").style("background-color", "white");
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      // create a filter
+      // create a filter button
     d3.select("body")
-        .append("p") // don't have to put p tag, but it's good form
+        .append("j") // don't have to put p tag, but it's good form
         .append("button")
-        .text("Filter")
+        .text("Focus")
         .on("click", function() {
             svg.selectAll("rect")
                 .filter(function(d) {
@@ -111,13 +130,6 @@ var svg = d3.select("body").append("svg")
                 .style("visibility", "hidden");
         })
 
-   //Create title
-    svg.append("text")
-    .attr("class", "title")
-    .attr("x", 320)
-    .attr("y",  60)
-    .style("text-anchor", "middle")
-    .text("A Woman’s Place Is in the Dome");
 d3.tsv("../data/asia.tsv", function(error, data) {
 
   data.forEach(function(d) {
@@ -187,10 +199,14 @@ d3.tsv("../data/asia.tsv", function(error, data) {
 });
 
 </script>
-<form id="form2">
-	<a href="asia.html"><button type="button">Asia</button></a>
-	<a href="middleEast.html"><button type="button">Middle East</button></a>
-	<a href="europe.html"><button type="button">Europe</button></a>
-	<a href="africa.html"><button type="button">Africa</button></a>
-	<a href="america.html"><button type="button">America</button></a>
-</form>
+<div class="form2">
+  <form>
+    <a href="asia.html"><button type="button">Asia</button></a>
+    <a href="middleEast.html"><button type="button">Middle East</button></a>
+    <a href="europe.html"><button type="button">Europe</button></a>
+    <a href="africa.html"><button type="button">Africa</button></a>
+    <a href="america.html"><button type="button">America</button></a>
+  </form>
+</div>
+
+</body>
