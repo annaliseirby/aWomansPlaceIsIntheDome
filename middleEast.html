@@ -100,6 +100,26 @@ var svg = d3.select("body").append("svg")
     .attr("y",  60)
     .style("text-anchor", "middle")
     .text("A Woman’s Place Is in the Dome");
+
+      // create a filter
+    d3.select("body")
+        .append("p") // don't have to put p tag, but it's good form
+        .append("button")
+        .text("Filter")
+        .on("click", function() {
+            svg.selectAll("rect")
+                .filter(function(d) {
+                    return (d.variable == "early marriage" || d.variable == "violence against women" || d.variable == "son preference");
+                    //getElementById("myVal").value;
+                })
+                .style("visibility", "hidden");
+
+            svg.selectAll(".variable-label")
+                .filter(function(d) {
+                    return (d.key == "early marriage" || d.key == "violence against women" || d.key == "son preference");
+                })
+                .style("visibility", "hidden");
+        })
 d3.tsv("middleEast.tsv", function(error, data) {
 
   data.forEach(function(d) {

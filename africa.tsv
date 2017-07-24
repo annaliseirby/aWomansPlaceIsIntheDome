@@ -1,4 +1,10 @@
 variable	country	value
+female politicians	Egypt	0.02
+female politicians	Ghana	0.11
+female politicians	Morocco	0.17
+female politicians	Nigeria	0.07
+female politicians	Uganda	0.35
+female politicians	South Africa	0.42
 early marriage	Egypt	0.14
 early marriage	Ghana	0.09
 early marriage	Morocco	0.11
@@ -17,9 +23,3 @@ son preference	Morocco	0.20
 son preference	Nigeria	0.46
 son preference	Uganda	0.23
 son preference	South Africa	0.20
-female politicians	Egypt	0.02
-female politicians	Ghana	0.11
-female politicians	Morocco	0.17
-female politicians	Nigeria	0.07
-female politicians	Uganda	0.35
-female politicians	South Africa	0.42

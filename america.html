@@ -93,6 +93,26 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+      // create a filter
+    d3.select("body")
+        .append("p") // don't have to put p tag, but it's good form
+        .append("button")
+        .text("Filter")
+        .on("click", function() {
+            svg.selectAll("rect")
+                .filter(function(d) {
+                    return (d.variable == "early marriage" || d.variable == "violence against women" || d.variable == "son preference");
+                    //getElementById("myVal").value;
+                })
+                .style("visibility", "hidden");
+
+            svg.selectAll(".variable-label")
+                .filter(function(d) {
+                    return (d.key == "early marriage" || d.key == "violence against women" || d.key == "son preference");
+                })
+                .style("visibility", "hidden");
+        })
+
    //Create title
     svg.append("text")
     .attr("class", "title")

@@ -1,4 +1,10 @@
 variable	country	value
+female politicians	Mexico	0.37
+female politicians	United States	0.18
+female politicians	Costa Rica	0.39
+female politicians	Brazil	0.09
+female politicians	Uruguay	0.12
+female politicians	Argentina	0.37
 early marriage	Mexico	0.17
 early marriage	United States	0.03
 early marriage	Costa Rica	0.13
@@ -17,9 +23,3 @@ son preference	Costa Rica	0
 son preference	Brazil	0.12
 son preference	Uruguay	0.09
 son preference	Argentina	0.14
-female politicians	Mexico	0.37
-female politicians	United States	0.18
-female politicians	Costa Rica	0.39
-female politicians	Brazil	0.09
-female politicians	Uruguay	0.12
-female politicians	Argentina	0.37

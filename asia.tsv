@@ -1,4 +1,10 @@
 variable	country	value
+female politicians	Australia	0.26
+female politicians	Bangladesh	0.20
+female politicians	Cambodia	0.20
+female politicians	China	0.23
+female politicians	Nepal	0.33
+female politicians	Philippines	0.27
 early marriage	Australia	0.01
 early marriage	Bangladesh	0.46
 early marriage	Cambodia	0.11
@@ -17,9 +23,3 @@ son preference	Cambodia	0.01
 son preference	China	0.22
 son preference	Nepal	0.01
 son preference	Philippines	0.39
-female politicians	Australia	0.26
-female politicians	Bangladesh	0.20
-female politicians	Cambodia	0.20
-female politicians	China	0.23
-female politicians	Nepal	0.33
-female politicians	Philippines	0.27

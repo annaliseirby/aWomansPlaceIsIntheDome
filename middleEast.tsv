@@ -1,4 +1,10 @@
 variable	country	value
+female politicians	Turkey	0.14
+female politicians	Iran	0.03
+female politicians	Jordan	0.12
+female politicians	Saudi Arabia	0.07
+female politicians	Afghanistan	0.28
+female politicians	Kuwait	0.06
 early marriage	Turkey	0.1
 early marriage	Iran	0.21
 early marriage	Jordan	0.07
@@ -17,9 +23,3 @@ son preference	Jordan	0.29
 son preference	Saudi Arabia	0.46
 son preference	Afghanistan	0.51
 son preference	Kuwait	0.36
-female politicians	Turkey	0.14
-female politicians	Iran	0.03
-female politicians	Jordan	0.12
-female politicians	Saudi Arabia	0.07
-female politicians	Afghanistan	0.28
-female politicians	Kuwait	0.06
